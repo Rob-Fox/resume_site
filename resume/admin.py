@@ -1,10 +1,10 @@
-from django.contrib import admin
+# from django.contrib import admin
 # from django.conf.urls import url
 from django.contrib.admin import AdminSite
-from django.template.response import TemplateResponse
+# from django.template.response import TemplateResponse
 from django.urls import path
-from django.shortcuts import render
-import pdfplumber, re
+from django.shortcuts import render, redirect
+from .resumeparser import ResumeParser
 
 from .models import *
 
@@ -14,20 +14,43 @@ from .models import *
 class MyModelAdmin(AdminSite):
     header = 'NEW HEAD HERE'
     def get_urls(self):
-        print('############ GETTING URLS ##################')
         urls = super().get_urls()
         additional_urls = [
-            path('upload/', self.admin_view(self.upload_view)),
-            path('process/', self.admin_view(self.process_view)),
+            path('upload/', self.admin_view(self.upload)),
+            path('process/', self.admin_view(self.process)),
         ]
-        print(f'custom urls: {additional_urls}')
         return additional_urls + urls
 
-    def upload_view(self, req):
-        return TemplateResponse(req, 'resume/upload.html')
+    def upload(self, req):
+        return render(req, 'resume/upload.html')
 
-    def process_view(self, req):
-        return render(req, 'resume/process.html')
+    def process(self, req):
+        if not req.FILES:
+            return redirect('/admin/upload')
+        else:
+            resume_file = req.FILES['resume']
+            parsed_resume = ResumeParser(resume_file).extract_text().normalize().split_sections()
+            try:
+                resume = parsed_resume.clean_sections()
+                header = resume.sections['HEADER']
+                experience = resume.sections['EXPERIENCE']
+                skills = resume.sections['SKILLS & ABILITIES']
+                resume = Resume.objects.create(name=header['name'], title=header['title'], email=header['email'], phone=header['phone'], location=header['location'], blurb=header['blurb'])
+                resume.save()
+                ActiveResume.objects.all().delete()
+                ActiveResume.objects.create(resume=resume)
+                for social in header['socials']:
+                    if 'linkedin' in social:
+                        s = SocialMedia.objects.create(name='LinkedIn', link=social)
+                        s.save()
+                    if 'github' in social:
+                        s = SocialMedia.objects.create(name='GitHub', link=social)
+                        s.save()
+                    s.resume.add(resume)
+            except Exception as e:
+                print(f'ERROR: {e}')
+                return redirect('/admin', e)
+        return redirect('/admin')
 
     
 my_model_admin = MyModelAdmin(name='myadmin')
@@ -39,50 +62,3 @@ my_model_admin.register(Bullet)
 my_model_admin.register(Skill)
 my_model_admin.register(SocialMedia)
 my_model_admin.register(ActiveResume)
-
-
-class ResumeParser:
-    def __init__(self, pdf):
-        self.pdf = pdf
-        self.headers = [
-            'HEADER',
-            'EXPERIENCE',
-            'SKILLS & ABILITIES'
-        ]
-        self.text = extract_text()
-        self.text = normalize()
-
-    def extract_text(self):
-        text = ''
-        with pdfplumber.open(self.pdf) as pdf:
-            for page in pdf.pages:
-                text += page.extract_text() + '\n'
-        return text
-
-    def normalize(self):
-        text = self.text
-        text = text.replace('\r', '\n')
-        text = re.sub(r'\n{2,}', '\n', text)
-        text = re.sub(r'[ \t]+', ' ', text)
-        return text.strip()
-
-    def split_sections(self):
-        text = self.text
-        lines = text.split('\n')
-        sections = {}
-        current_section = 'HEADER'
-        sections[current_section] = []
-
-        for line in lines:
-            cleaned = line.strip().lower()
-
-            if cleaned in self.headers:
-                current_section = cleaned
-                sections[current_section] = []
-            else:
-                sections[current_section].append(line)
-
-        for key in sections:
-            sections[key] = '\n'.join(sections[key]).strip()
-
-        return sections

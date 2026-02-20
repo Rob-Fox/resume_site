@@ -11,7 +11,8 @@ class Resume(models.Model):
     location = models.CharField(max_length=254, blank=False, null=False)
     blurb = models.TextField()
     # social links as related class
-    integrity_hash = models.CharField(max_length=64, blank=False, null=False, validators=[MinLengthValidator(64)])
+    # moving uploading to the admin page I don't think this serves a purpose anymore...
+    # integrity_hash = models.CharField(max_length=64, blank=False, null=False, validators=[MinLengthValidator(64)])
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

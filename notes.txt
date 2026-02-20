@@ -4,3 +4,6 @@ have a get to know me section:
     music ive loved(austrian death machine, the eagles, )
     games ive loved (morrowind, )
     layout idea on tablet
+
+get admin page set up for uploading resume pdf
+figure out how to parse data from my pdf resume

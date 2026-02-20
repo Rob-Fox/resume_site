@@ -1,5 +1,9 @@
 {% extends "admin/base_site.html" %}
 {% block content %}
     <h1>TEST</h1>
-    <link href="/admin/process">a</link>
+    <form action="/admin/process/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="resume">
+        <button type="'submit" id="submit_resume_file">Upload</button>
+    </form>
 {% endblock %}
