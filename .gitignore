@@ -2,3 +2,4 @@
 *.sqlite3
 *.pyc
 /resume/migrations/
+/Resume.pdf

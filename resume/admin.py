@@ -40,13 +40,25 @@ class MyModelAdmin(AdminSite):
                 ActiveResume.objects.all().delete()
                 ActiveResume.objects.create(resume=resume)
                 for social in header['socials']:
-                    if 'linkedin' in social:
-                        s = SocialMedia.objects.create(name='LinkedIn', link=social)
-                        s.save()
-                    if 'github' in social:
-                        s = SocialMedia.objects.create(name='GitHub', link=social)
-                        s.save()
-                    s.resume.add(resume)
+                    try:
+                        if 'linkedin' in social:
+                            s = SocialMedia.objects.create(name='LinkedIn', link=social)
+                            s.save()
+                        if 'github' in social:
+                            s = SocialMedia.objects.create(name='GitHub', link=social)
+                            s.save()
+                        s.resume.add(resume)
+                    except Exception as e:
+                        print(f'SOCIALS ERROR: {e}')
+                for job in experience:
+                    print(f'### ADDING JOB: {job}')
+                    job_obj = Job.objects.create(start=job['start'], end=job['end'], title=job['title'], employer=job['company'])
+                    job_obj.save()
+                    for bullet in job['bullets']:
+                        print('### ADDING BULLET')
+                        bullet_obj = Bullet.objects.create(text=bullet, job=job_obj)
+                        bullet_obj.save()
+                    job_obj.resume.add(resume)
             except Exception as e:
                 print(f'ERROR: {e}')
                 return redirect('/admin', e)

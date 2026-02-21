@@ -1,5 +1,6 @@
 
-import pdfplumber, re
+import pdfplumber, re, copy
+from datetime import datetime
 
 class ResumeParser:
     def __init__(self, pdf):
@@ -82,19 +83,46 @@ class ResumeParser:
     def clean_experience(self, experience):
         new_exp = []
         lines = experience.split('\n')
-        print(f'### UNSPLIT: {repr(experience)}')
+
+        job = None
+
         for line in lines:
-            job = {
-                'title': '',
-                'company': '',
-                'period': '',
-                'bullets': []
-            }
             if '|' in line:
-                line = line.split('|')
-                job['title'] = line[0]
-                job['company'] = line[1]
-                job['period'] = line[2]
-                # lines = lines.join()
-            
-            print(f'### {line}')
+                if job:
+                    new_exp.append(copy.deepcopy(job))
+                
+                parts = line.split('|')
+                job = {
+                    'title': parts[0],
+                    'company': parts[1],
+                    'period': parts[2],
+                    'bullets': [],
+                    'start': '',
+                    'end': ''
+                }
+            else:
+                if job and line.strip():
+                    stripped = line.strip()
+                    if stripped.startswith('·'):
+                        job['bullets'].append(line.strip())
+                    elif job['bullets']:
+                        job['bullets'][-1] += ' ' + stripped
+        
+        if job:
+            new_exp.append(copy.deepcopy(job))
+        for job in new_exp:
+            job['start'], job['end'] = self.parse_dates(job['period'])
+            print('dates parsed')
+        return new_exp
+    
+
+    def parse_dates(self, period):
+        print('parsing dates')
+        start, end = period.split('–')
+        start, end = start.strip(), end.strip()
+        start = datetime.strptime(start, "%b%Y").date()
+        if end != 'PRESENT':
+            end = datetime.strptime(end, "%b%Y").date()
+        else:
+            end = None
+        return start, end

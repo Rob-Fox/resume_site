@@ -7,3 +7,6 @@ have a get to know me section:
 
 get admin page set up for uploading resume pdf
 figure out how to parse data from my pdf resume
+
+NO: if you encounter '|' find the previous '\n' and split there, if none pass
+if encounter bullet point character ('·') start bullet, join next list item unless its first character is '·'
