@@ -1,0 +1,8 @@
+{% extends "admin/index.html" %}
+
+{% block content_title %}
+{{ block.super }}
+<a href="{% url 'admin:upload' %}" class="button">
+    Upload    
+</a>
+{% endblock %}

@@ -16,7 +16,7 @@ class MyModelAdmin(AdminSite):
     def get_urls(self):
         urls = super().get_urls()
         additional_urls = [
-            path('upload/', self.admin_view(self.upload)),
+            path('upload/', self.admin_view(self.upload), name='upload'),
             path('process/', self.admin_view(self.process)),
         ]
         return additional_urls + urls
