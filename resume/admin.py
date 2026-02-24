@@ -18,8 +18,17 @@ class MyModelAdmin(AdminSite):
         additional_urls = [
             path('upload/', self.admin_view(self.upload), name='upload'),
             path('process/', self.admin_view(self.process)),
+            path('clear/', self.admin_view(self.clear), name='clear')
         ]
         return additional_urls + urls
+
+    def clear(self, req):
+        ActiveResume.objects.all().delete()
+        SocialMedia.objects.all().delete()
+        Resume.objects.all().delete()
+        Job.objects.all().delete()
+        Bullet.objects.all().delete()
+        return redirect('/admin')
 
     def upload(self, req):
         return render(req, 'resume/upload.html')

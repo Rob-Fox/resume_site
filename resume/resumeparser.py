@@ -55,6 +55,7 @@ class ResumeParser:
         skills = self.sections['SKILLS & ABILITIES']
         self.sections['HEADER'] = self.clean_header(header)
         self.sections['EXPERIENCE'] = self.clean_experience(experience)
+        self.sections['SKILLS & ABILITIES'] = self.clean_skills(skills)
         return self
 
 
@@ -126,3 +127,22 @@ class ResumeParser:
         else:
             end = None
         return start, end
+
+    def clean_skills(self, skills):
+        lines = skills.split('\n')
+        cleaned_skills = []
+        for line in lines:
+            split_line = skills.split(':')
+            category = split_line[0]
+            raw_list = split_line[1].split(',')
+            for item in raw_list:
+                if '(' in item:
+                   idx = item.index('(') -1 #always a ' ' before the character
+                   item = item[:idx]
+                if  '/' in item:
+                    idx = item.index('/')
+                    item = item[:idx]
+                cleaned_skills.append({'category': category, 'skill': item})
+        print(f'### CLEANED SKILLS: {cleaned_skills}')
+        return cleaned_skills
+
