@@ -7,3 +7,5 @@ have a get to know me section:
 
 get admin page set up for uploading resume pdf (semi done)
 figure out how to parse data from my pdf resume (everything done except skills)
+
+speed up adding objects once resume is parsed, takes several seconds currently (most likely find way to run .save faster)

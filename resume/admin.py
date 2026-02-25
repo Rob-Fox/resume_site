@@ -28,6 +28,7 @@ class MyModelAdmin(AdminSite):
         Resume.objects.all().delete()
         Job.objects.all().delete()
         Bullet.objects.all().delete()
+        Skill.objects.all().delete()
         return redirect('/admin')
 
     def upload(self, req):
@@ -60,14 +61,16 @@ class MyModelAdmin(AdminSite):
                     except Exception as e:
                         print(f'SOCIALS ERROR: {e}')
                 for job in experience:
-                    print(f'### ADDING JOB: {job}')
                     job_obj = Job.objects.create(start=job['start'], end=job['end'], title=job['title'], employer=job['company'])
                     job_obj.save()
                     for bullet in job['bullets']:
-                        print('### ADDING BULLET')
                         bullet_obj = Bullet.objects.create(text=bullet, job=job_obj)
                         bullet_obj.save()
                     job_obj.resume.add(resume)
+                for skill in skills:
+                    skill_object = Skill.objects.create(category=skill['category'], skill_name=skill['skill'])
+                    skill_object.save()
+                    skill_object.resume.add(resume)
             except Exception as e:
                 print(f'ERROR: {e}')
                 return redirect('/admin', e)

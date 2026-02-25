@@ -113,12 +113,10 @@ class ResumeParser:
             new_exp.append(copy.deepcopy(job))
         for job in new_exp:
             job['start'], job['end'] = self.parse_dates(job['period'])
-            print('dates parsed')
         return new_exp
     
 
     def parse_dates(self, period):
-        print('parsing dates')
         start, end = period.split('–')
         start, end = start.strip(), end.strip()
         start = datetime.strptime(start, "%b%Y").date()
@@ -129,19 +127,14 @@ class ResumeParser:
         return start, end
 
     def clean_skills(self, skills):
-        lines = skills.split('\n')
+        lines = re.sub(r'\(.*?\)', '', skills, flags=re.DOTALL)
+        lines = lines.replace('\uf0b7 ', '').split('\n')
         cleaned_skills = []
         for line in lines:
-            split_line = skills.split(':')
+            split_line = line.split(':')
             category = split_line[0]
-            raw_list = split_line[1].split(',')
+            raw_list = re.sub(r'\/.*?\,', ',', split_line[1]).split(',')
             for item in raw_list:
-                if '(' in item:
-                   idx = item.index('(') -1 #always a ' ' before the character
-                   item = item[:idx]
-                if  '/' in item:
-                    idx = item.index('/')
-                    item = item[:idx]
                 cleaned_skills.append({'category': category, 'skill': item})
         print(f'### CLEANED SKILLS: {cleaned_skills}')
         return cleaned_skills
