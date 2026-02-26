@@ -22,6 +22,18 @@
     </header>
     {% if content != none %}
     {% endif %}
+    <div id="resume_content">
+        <h2>{{ resume.blurb }}</h2>
+        {% for job in resume.jobs.all %}
+        <h3>{{ job.title }}</h3>
+            {% for bullet in job.bullets.all %}
+            <p>{{ bullet.text }}</p>
+            {% endfor %}
+        {% endfor %}
+        {% for skill in resume.skills.all %}
+        <h4>{{ skill.skill_name }}</h4>
+        {% endfor %}
+    </div>
     <div id="know_me">
         <div id="films">
             <ul>

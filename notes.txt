@@ -5,7 +5,7 @@ have a get to know me section:
     games ive loved (morrowind, )
     layout idea on tablet
 
-get admin page set up for uploading resume pdf (semi done)
-figure out how to parse data from my pdf resume (everything done except skills)
+get admin page set up for uploading resume pdf #DONE
+figure out how to parse data from my pdf resume #DONE
 
-speed up adding objects once resume is parsed, takes several seconds currently (most likely find way to run .save faster)
+speed up adding objects once resume is parsed, takes several seconds currently #DONE time cut in half for current resume.

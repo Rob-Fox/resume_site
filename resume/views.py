@@ -6,8 +6,7 @@ from .models import *
 # Create your views here.
 def index(req):
     try:
-        content = Resume.objects.prefetch_related('jobs__bullets', 'skills', 'socials').get(uuid=ActiveResume.objects.all.first().resume.uuid)
+        content = {'resume': Resume.objects.prefetch_related('jobs__bullets', 'skills', 'socials').get(uuid=ActiveResume.objects.all().first().resume.uuid)}
     except Exception as e:
         content = None
-    
     return render(req, 'resume/index.html', content)

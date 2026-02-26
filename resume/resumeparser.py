@@ -136,6 +136,5 @@ class ResumeParser:
             raw_list = re.sub(r'\/.*?\,', ',', split_line[1]).split(',')
             for item in raw_list:
                 cleaned_skills.append({'category': category, 'skill': item})
-        print(f'### CLEANED SKILLS: {cleaned_skills}')
         return cleaned_skills
 

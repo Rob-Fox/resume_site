@@ -49,28 +49,39 @@ class MyModelAdmin(AdminSite):
                 resume.save()
                 ActiveResume.objects.all().delete()
                 ActiveResume.objects.create(resume=resume)
+                social_group = []
+                job_group = []
+                bullet_group = []
+                skill_group = []
                 for social in header['socials']:
                     try:
                         if 'linkedin' in social:
-                            s = SocialMedia.objects.create(name='LinkedIn', link=social)
-                            s.save()
+                            social_obj = SocialMedia(name='LinkedIn', link=social)
+                            social_group.append(social_obj)
                         if 'github' in social:
-                            s = SocialMedia.objects.create(name='GitHub', link=social)
-                            s.save()
-                        s.resume.add(resume)
+                            social_obj = SocialMedia(name='GitHub', link=social)
+                            social_group.append(social_obj)
                     except Exception as e:
                         print(f'SOCIALS ERROR: {e}')
                 for job in experience:
-                    job_obj = Job.objects.create(start=job['start'], end=job['end'], title=job['title'], employer=job['company'])
-                    job_obj.save()
+                    job_obj = Job(start=job['start'], end=job['end'], title=job['title'], employer=job['company'])
+                    job_group.append(job_obj)
                     for bullet in job['bullets']:
-                        bullet_obj = Bullet.objects.create(text=bullet, job=job_obj)
-                        bullet_obj.save()
-                    job_obj.resume.add(resume)
+                        bullet_obj = Bullet(text=bullet, job=job_obj)
+                        bullet_group.append(bullet_obj)
                 for skill in skills:
-                    skill_object = Skill.objects.create(category=skill['category'], skill_name=skill['skill'])
-                    skill_object.save()
-                    skill_object.resume.add(resume)
+                    skill_object = Skill(category=skill['category'], skill_name=skill['skill'])
+                    skill_group.append(skill_object)
+                SocialMedia.objects.bulk_create(social_group)
+                for social in social_group:
+                    social_obj.resume.add(resume)
+                Job.objects.bulk_create(job_group)
+                for job in job_group:
+                    job.resume.add(resume)
+                Bullet.objects.bulk_create(bullet_group)
+                Skill.objects.bulk_create(skill_group)
+                for skill in skill_group:
+                    skill.resume.add(resume)
             except Exception as e:
                 print(f'ERROR: {e}')
                 return redirect('/admin', e)
