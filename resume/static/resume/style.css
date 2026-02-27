@@ -1,0 +1,7 @@
+#fast-links li {
+    display: inline-block;
+    color:cadetblue;
+}
+a {
+    display: inline-flex;
+}

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,12 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.cs">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">   
+    <link rel="stylesheet" type="text/css" href='{% static "resume/style.css" %}'>
+    <script src='{% static "resume/script.js" %}'></script>
 </head>
 <body>
     <header>
         <div>
             sitename/title
+            <span style="background-color: lightblue;">About Me</span>
+            <span>About this Page</span>
         </div>
+    </header>
+    <header2>
         <div id="fast-links">
             <ul>
                 <li>Experience</li>
@@ -19,20 +28,39 @@
                 <li>Get to Know me</li>
             </ul>
         </div>
-    </header>
-    {% if content != none %}
-    {% endif %}
+    </header2>
+    {% if resume != none %}
     <div id="resume_content">
-        <h2>{{ resume.blurb }}</h2>
-        {% for job in resume.jobs.all %}
-        <h3>{{ job.title }}</h3>
-            {% for bullet in job.bullets.all %}
-            <p>{{ bullet.text }}</p>
+        <div id="socials_1">
+            {% for social in resume.socials.all %}
+                <a href='{{ social.link }}' target="_blank">
+                    <svg id="{{ social.name|lower }}_svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+                        <path id="{{ social.name|lower }}_path">
+                    </svg>
+                </a>
             {% endfor %}
+        </div>
+        <h2>{{ resume.blurb }}</h2>
+        <div id="job_div">
+            {% for job in resume.jobs.all %}
+                <h3>{{ job.title }}</h3>
+                <ul>
+                    {% for bullet in job.bullets.all %}
+                        <li>{{ bullet.text }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </div>
+    <div>
+        {% for category, skill_list in skills.items %}
+            <h3 id="skill_category"> {{ category }}</h3>
+            <ul>
+            {% for skill in skill_list %}
+                <li>{{ skill.skill_name }}</li>
+            {% endfor%}
+            </ul>
         {% endfor %}
-        {% for skill in resume.skills.all %}
-        <h4>{{ skill.skill_name }}</h4>
-        {% endfor %}
+    </div>
     </div>
     <div id="know_me">
         <div id="films">
@@ -76,5 +104,6 @@
             </ul>
         </div>
     </div>
+    {% endif %}
 </body>
 </html>

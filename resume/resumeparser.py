@@ -105,7 +105,7 @@ class ResumeParser:
                 if job and line.strip():
                     stripped = line.strip()
                     if stripped.startswith('·'):
-                        job['bullets'].append(line.strip())
+                        job['bullets'].append(line.strip()[2:])
                     elif job['bullets']:
                         job['bullets'][-1] += ' ' + stripped
         

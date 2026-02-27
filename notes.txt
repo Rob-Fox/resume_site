@@ -5,6 +5,17 @@ have a get to know me section:
     games ive loved (morrowind, )
     layout idea on tablet
 
+Top of the page:
+    2 tabs:
+        About me
+        About this page (technology stack, hosting, etc)
+    switch between tabs fluidly
+
+socials centered above blurb section (icons as links)
+
+
+for skills section have only first skill section visible (rotates on timer?) and arrows on either side to switch to other sections (looping back around to the start if proceeding from the end)
+
 get admin page set up for uploading resume pdf #DONE
 figure out how to parse data from my pdf resume #DONE
 

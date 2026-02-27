@@ -74,7 +74,7 @@ class MyModelAdmin(AdminSite):
                     skill_group.append(skill_object)
                 SocialMedia.objects.bulk_create(social_group)
                 for social in social_group:
-                    social_obj.resume.add(resume)
+                    social.resume.add(resume)
                 Job.objects.bulk_create(job_group)
                 for job in job_group:
                     job.resume.add(resume)
