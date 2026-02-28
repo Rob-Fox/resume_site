@@ -13,6 +13,13 @@ Top of the page:
 
 socials centered above blurb section (icons as links)
 
+have jobs as magic cards? (changed enough to avoid problems)
+    card name: job title
+    card type: company
+    bullets: text box
+    dates: power/toughness
+
+
 
 for skills section have only first skill section visible (rotates on timer?) and arrows on either side to switch to other sections (looping back around to the start if proceeding from the end)
 
