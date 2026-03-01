@@ -5,3 +5,70 @@
 a {
     display: inline-flex;
 }
+.card_outer {
+    width: 63mm;
+    height: 88mm;
+    border-color: black;
+    border-style: solid;
+    border-radius: 3mm;
+    background-color: black;
+}
+.card_inner {
+    width: 59mm;
+    height: 76mm;
+    margin-top: 2mm;
+    margin-left: 2mm;
+    margin-right: 2mm;
+    border-radius: 2mm;
+    padding-top: 1mm;
+    background-color: red;
+    vertical-align: top;
+    border-radius: 2mm 2mm 5mm 5mm;
+}
+.name_box {
+    margin-top: 2mm;
+}
+.text_bar {
+    width: 55mm;
+    height: 5mm;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 3mm/10mm;
+    background-color: gray;
+    vertical-align: top;
+    align-self: center;
+    box-shadow: 0 0 0 .5mm lightsalmon, 1mm  -1mm .25mm -.75mm inset #404040, -1mm  1mm .25mm -.75mm inset #c0c0c0;
+    font-size: 80%;
+    padding-left: 2%;
+    line-height: 5mm;
+}
+.image_box {
+    margin-top: .6mm;
+    margin-bottom: .6mm;
+    margin-left: auto;
+    margin-right: auto;
+    width: 53mm;
+    height: 39mm;
+    box-shadow: 0 0 0 .5mm lightsalmon;
+}
+.type_box {
+
+}
+.text_box {
+    margin-top: .6mm;
+    /* margin-bottom: .6mm; */
+    margin-left: auto;
+    margin-right: auto;
+    width: 53mm;
+    height: 26mm;
+    box-shadow: 0 0 0 .5mm lightsalmon;
+    background-color: navajowhite;
+    font-size: 50%;
+}
+.text_box ul {
+    padding-left: 5%;
+    margin: 0;
+}
+.power_box {
+
+}

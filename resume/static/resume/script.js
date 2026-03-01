@@ -9,7 +9,7 @@ inner_band = 1;
 top_field_height = 5;
 type_field_height = 5;
 // outer border has rounded outside and inside corners, outside over 2 mil and inside over .5 mil
-// all side borders on name box 1 mil with .4 mil as top highlight
+// all side borders on name box 1 mil with .4 mil as top/right highlight
 // side borders on picture frame 1 mil
 // all side borders on creature type 1 mil
 // side and bottom border on text box 1 mil
