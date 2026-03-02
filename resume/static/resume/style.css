@@ -70,5 +70,11 @@ a {
     margin: 0;
 }
 .power_box {
-
+    width: 8mm;
+    height: 3mm;
+    background-color: gray;
+    float: right;
+    border-radius: 3mm/10mm;
+    box-shadow: 0 0 0 .5mm gray, -1mm 1mm .25mm -.75mm inset #404040;
+    font-size: 50%;
 }

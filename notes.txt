@@ -18,6 +18,7 @@ have jobs as magic cards? (changed enough to avoid problems)
     card type: company
     bullets: text box
     dates: power/toughness
+        find out how to format the date in HTML/CSS/JS to match resume (MONYEAR (MAR2024))
     image: gifs?
 
 
