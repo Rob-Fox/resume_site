@@ -68,13 +68,22 @@ a {
 .text_box ul {
     padding-left: 5%;
     margin: 0;
+    list-style-type: none;
+}
+.text_box ul li {
+    margin-bottom: 1mm;
 }
 .power_box {
-    width: 8mm;
-    height: 3mm;
+    width:fit-content;
+    height: 4mm;
     background-color: gray;
     float: right;
     border-radius: 3mm/10mm;
     box-shadow: 0 0 0 .5mm gray, -1mm 1mm .25mm -.75mm inset #404040;
     font-size: 50%;
+    line-height: 4mm;
+    padding-left: 1mm;
+    padding-right: 1mm;
+    font-weight: bold;
+    margin-top: -2mm;
 }

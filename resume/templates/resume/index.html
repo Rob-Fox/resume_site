@@ -43,13 +43,29 @@
         <h2>{{ resume.blurb }}</h2>
         <div id="job_div">
             {% for job in resume.jobs.all %}
-            
-                <h3>{{ job.title }}</h3>
-                <ul>
-                    {% for bullet in job.bullets.all %}
-                        <li>{{ bullet.text }}</li>
-                    {% endfor %}
-                </ul>
+                <div class="card_outer">
+                    <div class="card_inner">
+                        <div class="text_bar name_box">
+                            {{ job.title }}
+                        </div>
+                        <div class="image_box">
+
+                        </div>
+                        <div class="text_bar type_box">
+                            {{ job.employer}}
+                        </div>
+                        <div class="text_box">
+                            <ul>
+                            {% for bullet in job.bullets.all %}
+                                <li>{{ bullet.text }}</li>
+                            {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="power_box">
+                            {{ job.start|date:'MY'|upper }}/{% if job.end != None %}{{ job.end|date:'MY'|upper }} {% else %}PRESENT{% endif %}
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
         </div>
     <div>
@@ -108,29 +124,6 @@
     {% endif %}
     <p></p>
     <p></p>
-    <div class="card_outer">
-        <div class="card_inner">
-            <div class="text_bar name_box">
-                {{ resume.jobs.all.0.title }}
-            </div>
-            <div class="image_box">
-
-            </div>
-            <div class="text_bar type_box">
-                {{ resume.jobs.all.0.employer}}
-            </div>
-            <div class="text_box">
-                <ul>
-                {% for bullet in resume.jobs.all.0.bullets.all %}
-                    <li>{{ bullet.text }}</li>
-                {% endfor %}
-                </ul>
-            </div>
-            <div class="power_box">
-                {{ resume.jobs.all.0.start }}/{{ resume.jobs.all.0.end}}
-            </div>
-        </div>
-    </div>
     <p></p>
     <p></p>
     <p></p>
