@@ -14,14 +14,15 @@ Top of the page:
 socials centered above blurb section (icons as links)
 
 have jobs as magic cards? (changed enough to avoid problems)
-    card name: job title
-    card type: company
-    bullets: text box
-    dates: power/toughness
+    card name: job title #DONE
+    card type: company #DOPNE
+    bullets: text box #DONE
+    dates: power/toughness #DONE
         find out how to format the date in HTML/CSS/JS to match resume (MONYEAR (MAR2024)) #DONE
     image: gifs?
 
     Fix formatting of longer text sections (microsoft job title, METER bullets, etc)
+    Fix all css measurements to be more programmatic for changes to scaling, current scaling is too small.
 
 
 

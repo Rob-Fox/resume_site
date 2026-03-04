@@ -42,6 +42,7 @@
         </div>
         <h2>{{ resume.blurb }}</h2>
         <div id="job_div">
+            <button id="previous"><-</button>
             {% for job in resume.jobs.all %}
                 <div class="card_outer">
                     <div class="card_inner">
@@ -67,6 +68,7 @@
                     </div>
                 </div>
             {% endfor %}
+            <button id="next">-></button>
         </div>
     <div>
         {% for category, skill_list in skills.items %}

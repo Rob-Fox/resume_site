@@ -12,6 +12,10 @@ a {
     border-style: solid;
     border-radius: 3mm;
     background-color: black;
+    display: none
+}
+.card_outer:nth-child(2) {
+    display: block;
 }
 .card_inner {
     width: 59mm;
@@ -43,24 +47,23 @@ a {
     line-height: 5mm;
 }
 .image_box {
+    width: 53mm;
+    height: 39mm;
     margin-top: .6mm;
     margin-bottom: .6mm;
     margin-left: auto;
     margin-right: auto;
-    width: 53mm;
-    height: 39mm;
     box-shadow: 0 0 0 .5mm lightsalmon;
 }
 .type_box {
 
 }
 .text_box {
-    margin-top: .6mm;
-    /* margin-bottom: .6mm; */
-    margin-left: auto;
-    margin-right: auto;
     width: 53mm;
     height: 26mm;
+    margin-top: .6mm;
+    margin-left: auto;
+    margin-right: auto;
     box-shadow: 0 0 0 .5mm lightsalmon;
     background-color: navajowhite;
     font-size: 50%;
