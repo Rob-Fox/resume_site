@@ -1,3 +1,7 @@
+:root {
+    --scale: 1;
+    --u: calc(1mm*var(--scale));
+}
 #fast-links li {
     display: inline-block;
     color:cadetblue;
@@ -5,35 +9,40 @@
 a {
     display: inline-flex;
 }
+#job_div {
+    /* display: flex; */
+}
 .card_outer {
-    width: 63mm;
-    height: 88mm;
+    width: calc(63mm*var(--scale));
+    height: calc(88mm*var(--scale));
     border-color: black;
     border-style: solid;
-    border-radius: 3mm;
+    border-radius: calc(3mm*var(--scale));
     background-color: black;
     display: none
+    /* display: inline-block; */
 }
 .card_outer:nth-child(2) {
     display: block;
 }
 .card_inner {
-    width: 59mm;
-    height: 76mm;
-    margin-top: 2mm;
-    margin-left: 2mm;
-    margin-right: 2mm;
-    border-radius: 2mm;
-    padding-top: 1mm;
+    width: calc(59mm*var(--scale));
+    height: calc(76mm*var(--scale));
+    margin-top: calc(2mm*var(--scale));
+    margin-left: calc(2mm*var(--scale));
+    margin-right: calc(2mm*var(--scale));
+    border-radius: calc(2mm*var(--scale));
+    padding-top: calc(1mm*var(--scale));
     background-color: red;
     vertical-align: top;
-    border-radius: 2mm 2mm 5mm 5mm;
+    border-radius: calc(2mm*var(--scale)) calc(2mm*var(--scale)) calc(5mm*var(--scale)) calc(5mm*var(--scale));   
 }
 .name_box {
-    margin-top: 2mm;
+    /* margin-top: 2mm; */
+    margin-top: calc(2mm*var(--scale));
 }
 .text_bar {
-    width: 55mm;
+    /* width: 55mm;
     height: 5mm;
     margin-left: auto;
     margin-right: auto;
@@ -44,29 +53,63 @@ a {
     box-shadow: 0 0 0 .5mm lightsalmon, 1mm  -1mm .25mm -.75mm inset #404040, -1mm  1mm .25mm -.75mm inset #c0c0c0;
     font-size: 80%;
     padding-left: 2%;
-    line-height: 5mm;
+    line-height: 5mm; */
+
+    width: calc(55mm*var(--scale));
+    height: calc(5mm*var(--scale));
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: calc(3mm*var(--scale))/calc(10mm*var(--scale));
+    background-color: gray;
+    vertical-align: top;
+    align-self: center;
+    box-shadow: 0 0 0 calc(.5mm*var(--scale)) lightsalmon, calc(1mm*var(--scale))  calc(-1mm*var(--scale)) calc(.25mm*var(--scale)) calc(-.75mm*var(--scale)) inset #404040, calc(-1mm*var(--scale))  calc(1mm*var(--scale)) calc(.25mm*var(--scale)) calc(-.75mm*var(--scale)) inset #c0c0c0;
+    /* font-size: calc(1em*var(--scale)); */
+    /* font-size: 1rem; */
+    /* font-size: clamp(1rem, 1cqw); */
+    container-type: inline-size;
+    font-size: 5cqw;
+    padding-left: 2%;
+    line-height: calc(5mm*var(--scale));
 }
 .image_box {
-    width: 53mm;
+    /* width: 53mm;
     height: 39mm;
     margin-top: .6mm;
     margin-bottom: .6mm;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 0 0 .5mm lightsalmon;
+    box-shadow: 0mm 0mm 0mm .5mm lightsalmon; */
+
+    width: calc(53mm*var(--scale));
+    height: calc(39mm*var(--scale));
+    margin-top: calc(.6mm*var(--scale));
+    margin-bottom: calc(.6mm*var(--scale));
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0mm 0mm 0mm calc(.5mm*var(--scale)) lightsalmon;
 }
 .type_box {
 
 }
 .text_box {
-    width: 53mm;
+    /* width: 53mm;
     height: 26mm;
     margin-top: .6mm;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 0 0 .5mm lightsalmon;
+    box-shadow: 0mm 0mm 0mm .5mm lightsalmon;
     background-color: navajowhite;
-    font-size: 50%;
+    font-size: 50%; */
+
+    width: calc(53mm*var(--scale));
+    height: calc(26mm*var(--scale));
+    margin-top: calc(.6mm*var(--scale));
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0mm 0mm 0mm calc(.5mm*var(--scale)) lightsalmon;
+    background-color: navajowhite;
+    font-size: 1em;
 }
 .text_box ul {
     padding-left: 5%;
@@ -74,19 +117,34 @@ a {
     list-style-type: none;
 }
 .text_box ul li {
-    margin-bottom: 1mm;
+    /* margin-bottom: 1mm; */
+
+    margin-bottom: calc(1mm*var(--scale));
 }
 .power_box {
-    width:fit-content;
+    /* width:fit-content;
     height: 4mm;
     background-color: gray;
     float: right;
     border-radius: 3mm/10mm;
-    box-shadow: 0 0 0 .5mm gray, -1mm 1mm .25mm -.75mm inset #404040;
+    box-shadow: 0mm 0mm 0mm .5mm gray, -1mm 1mm .25mm -.75mm inset #404040;
     font-size: 50%;
     line-height: 4mm;
     padding-left: 1mm;
     padding-right: 1mm;
     font-weight: bold;
-    margin-top: -2mm;
+    margin-top: -2mm; */
+
+    width:fit-content;
+    height: calc(4mm*var(--scale));
+    background-color: gray;
+    float: right;
+    border-radius: calc(3mm*var(--scale))/calc(10mm*var(--scale));
+    box-shadow: 0mm 0mm 0mm calc(.5mm*var(--scale)) gray, calc(-1mm*var(--scale)) calc(1mm*var(--scale)) calc(.25mm*var(--scale)) calc(-.75mm*var(--scale)) inset #404040;
+    font-size: calc(1em*var(--scale));
+    line-height: calc(4mm*var(--scale));
+    padding-left: calc(1mm*var(--scale));
+    padding-right: calc(1mm*var(--scale));
+    font-weight: bold;
+    margin-top: calc(-2mm*var(--scale));
 }

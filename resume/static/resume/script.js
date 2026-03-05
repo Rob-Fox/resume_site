@@ -33,6 +33,8 @@ const text_bar_font_size = .80; //percentage
 const text_bar_padding_left = .02; //percentage
 const text_bar_line_height = 5;
 
+const name_box_margin_top = 2;
+
 const image_box_width = 53;
 const image_box_height = 39;
 const image_box_margin_top_bottom = .6;
@@ -42,7 +44,20 @@ const text_box_width = 53;
 const text_box_height = 26;
 const text_box_margin_top = .6;
 const text_box_box_shadow = [0, 0, 0, .5];
-const text_box_font_size = .5; //precentage
+const text_box_font_size = .5; //percentage
+
+const text_box_ul_padding_left = .05; //percentage
+const text_box_ul_margin = 0;
+
+const text_box_ul_li_margin_bottom = 1;
+
+const power_box_height = 4;
+const power_box_border_radius = [3, 10];
+const power_box_box_shadow = [[0, 0, 0, .5], [-1, 1, .25, -.75]];
+const power_box_font_size = .5; //percentage
+const power_box_line_height = 4;
+const power_box_padding_left_right = 1;
+const power_box_margin_top = -2;
 
 
 document.addEventListener('DOMContentLoaded', function(){
