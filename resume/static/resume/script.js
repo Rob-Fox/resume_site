@@ -15,50 +15,53 @@
 // side and bottom border on text box 1 mil
 // .5 mil border on power/toughness with .5 mil drop shadow (down and left)
 
-const card_width = 63;
-const card_height = 88;
-const outer_card_border = 3;
-const inner_card_width = 59;
-const inner_card_height = 76;
-const inner_card_margin = 2;
-const inner_card_border = 2;
-const inner_card_padding = 1;
-const inner_card_border_radius = [2, 2, 5, 5];
 
-const text_bar_width = 55;
-const text_bar_height = 55;
-const text_bar_border_radius = 55;
-const text_bar_box_shadow = [[0, 0, 0, .5], [1, -1, .25, -.75], [-1, 1, .25, -.75]];
-const text_bar_font_size = .80; //percentage
-const text_bar_padding_left = .02; //percentage
-const text_bar_line_height = 5;
+// const card_width = 63;
+// const card_height = 88;
+// const outer_card_border = 3;
+// const inner_card_width = 59;
+// const inner_card_height = 76;
+// const inner_card_margin = 2;
+// const inner_card_border = 2;
+// const inner_card_padding = 1;
+// const inner_card_border_radius = [2, 2, 5, 5];
 
-const name_box_margin_top = 2;
+// const text_bar_width = 55;
+// const text_bar_height = 55;
+// const text_bar_border_radius = 55;
+// const text_bar_box_shadow = [[0, 0, 0, .5], [1, -1, .25, -.75], [-1, 1, .25, -.75]];
+// const text_bar_font_size = .80; //percentage
+// const text_bar_padding_left = .02; //percentage
+// const text_bar_line_height = 5;
 
-const image_box_width = 53;
-const image_box_height = 39;
-const image_box_margin_top_bottom = .6;
-const image_box_box_shadow = [0, 0, 0, .5];
+// const name_box_margin_top = 2;
 
-const text_box_width = 53;
-const text_box_height = 26;
-const text_box_margin_top = .6;
-const text_box_box_shadow = [0, 0, 0, .5];
-const text_box_font_size = .5; //percentage
+// const image_box_width = 53;
+// const image_box_height = 39;
+// const image_box_margin_top_bottom = .6;
+// const image_box_box_shadow = [0, 0, 0, .5];
 
-const text_box_ul_padding_left = .05; //percentage
-const text_box_ul_margin = 0;
+// const text_box_width = 53;
+// const text_box_height = 26;
+// const text_box_margin_top = .6;
+// const text_box_box_shadow = [0, 0, 0, .5];
+// const text_box_font_size = .5; //percentage
 
-const text_box_ul_li_margin_bottom = 1;
+// const text_box_ul_padding_left = .05; //percentage
+// const text_box_ul_margin = 0;
 
-const power_box_height = 4;
-const power_box_border_radius = [3, 10];
-const power_box_box_shadow = [[0, 0, 0, .5], [-1, 1, .25, -.75]];
-const power_box_font_size = .5; //percentage
-const power_box_line_height = 4;
-const power_box_padding_left_right = 1;
-const power_box_margin_top = -2;
+// const text_box_ul_li_margin_bottom = 1;
 
+// const power_box_height = 4;
+// const power_box_border_radius = [3, 10];
+// const power_box_box_shadow = [[0, 0, 0, .5], [-1, 1, .25, -.75]];
+// const power_box_font_size = .5; //percentage
+// const power_box_line_height = 4;
+// const power_box_padding_left_right = 1;
+// const power_box_margin_top = -2;
+
+
+const measure = document.createElement('span');
 
 document.addEventListener('DOMContentLoaded', function(){
     draw_socials();
@@ -73,7 +76,69 @@ document.addEventListener('DOMContentLoaded', function(){
         current_idx = (current_idx - 1 + children.length) % children.length;
         switch_child(current_idx, children);
     })
+
+    
+
+    measure.style.position = 'absolute';
+    measure.style.visibility = 'hidden';
+    measure.style.whiteSpace = 'nowrap';
+    measure.style.top = '-9999px';
+    measure.style.left = '-9999px';
+
+    document.body.appendChild(measure);
+    console.log('measure: ' + measure);
+
+    document.querySelectorAll('.name_box_text').forEach(fit_text);
 })
+
+window.addEventListener('resize', function(){
+//     let text_bar = document.getElementsByClassName('text_bar')[0];
+//     let text_bar_width = this.getComputedStyle(text_bar).width.slice(0, -2);
+//     // text_bar_width = Math.floor(text_bar_width);
+//     // let text_bar_width2 = text_bar.getBoundingClientRect().width;
+//     console.log('text bar width type: '+ typeof(text_bar_width))
+//     console.log('text bar width: ' + text_bar_width);
+//     // console.log('text bar width2: ' + text_bar_width2);
+//     let text_content = text_bar.innerText;
+//     console.log('text bar content: ' + text_content)
+//     console.log('text bar content length: ' + text_content.length)
+//     console.log('space per char: ' + (text_bar_width/text_content.length))
+
+    let element = document.querySelectorAll('#name_box_text')[0]
+    
+    fit_text(element);
+})
+
+
+function fit_text(el, base_size=100){
+    console.log('fitting text');
+    const parent = el.parentElement;
+    console.log('parent: '+ parent);
+
+    measure.style.font = window.getComputedStyle(el).font;
+    measure.style.fontSize = base_size + 'px';
+    measure.textContent = el.textContent;
+    console.log('el.textcontent ' + el.textContent);
+    console.log('measure.textcontent ' + measure.textContent);
+
+    const text_width = measure.offsetWidth;
+    const text_height = measure.offsetHeight;
+    console.log('offset width: ' + measure.offsetWidth);
+    console.log('offset height: ' + measure.offsetHeight);
+
+    console.log('parentWidth: '+ parent.clientWidth);
+    console.log('parentHeight: '+ parent.clientHeight);
+    const scale_x = parent.clientWidth / text_width;
+    const scale_y = parent.clientHeight / text_height;
+    console.log('scale_x: ' + scale_x);
+    console.log('scale_y: ' + scale_y);
+
+    const scale = Math.min(scale_x, scale_y);
+    console.log('scale: ' + scale);
+    console.log('scale*base_size: ' + scale*base_size);
+
+    el.style.fontSize = (base_size * scale) + 'px';
+}
 
 function draw_socials(){
     linkedin_svg_element = document.getElementById('linkedin_svg');

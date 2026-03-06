@@ -1,5 +1,5 @@
 :root {
-    --scale: 1;
+    --scale: 2.5;
     --u: calc(1mm*var(--scale));
 }
 #fast-links li {
@@ -10,7 +10,7 @@ a {
     display: inline-flex;
 }
 #job_div {
-    /* display: flex; */
+    display: flex;
 }
 .card_outer {
     width: calc(63mm*var(--scale));
@@ -67,10 +67,21 @@ a {
     /* font-size: calc(1em*var(--scale)); */
     /* font-size: 1rem; */
     /* font-size: clamp(1rem, 1cqw); */
-    container-type: inline-size;
-    font-size: 5cqw;
+    /* container-type: inline-size;
+    font-size: clamp(1cqw, 100cqh); */
+    /* font-size: clamp(100%, calc(1em*var(--scale))); */
     padding-left: 2%;
     line-height: calc(5mm*var(--scale));
+    overflow: hidden;
+}
+#name_box_text {
+    /* font-size: calc(1rem + 1vw);
+    width: 100%; */
+    white-space: nowrap;
+}
+#type_box_text {
+    font-size: calc(1rem + 1vw);
+    width: 100%;
 }
 .image_box {
     /* width: 53mm;
