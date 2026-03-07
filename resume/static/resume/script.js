@@ -16,51 +16,6 @@
 // .5 mil border on power/toughness with .5 mil drop shadow (down and left)
 
 
-// const card_width = 63;
-// const card_height = 88;
-// const outer_card_border = 3;
-// const inner_card_width = 59;
-// const inner_card_height = 76;
-// const inner_card_margin = 2;
-// const inner_card_border = 2;
-// const inner_card_padding = 1;
-// const inner_card_border_radius = [2, 2, 5, 5];
-
-// const text_bar_width = 55;
-// const text_bar_height = 55;
-// const text_bar_border_radius = 55;
-// const text_bar_box_shadow = [[0, 0, 0, .5], [1, -1, .25, -.75], [-1, 1, .25, -.75]];
-// const text_bar_font_size = .80; //percentage
-// const text_bar_padding_left = .02; //percentage
-// const text_bar_line_height = 5;
-
-// const name_box_margin_top = 2;
-
-// const image_box_width = 53;
-// const image_box_height = 39;
-// const image_box_margin_top_bottom = .6;
-// const image_box_box_shadow = [0, 0, 0, .5];
-
-// const text_box_width = 53;
-// const text_box_height = 26;
-// const text_box_margin_top = .6;
-// const text_box_box_shadow = [0, 0, 0, .5];
-// const text_box_font_size = .5; //percentage
-
-// const text_box_ul_padding_left = .05; //percentage
-// const text_box_ul_margin = 0;
-
-// const text_box_ul_li_margin_bottom = 1;
-
-// const power_box_height = 4;
-// const power_box_border_radius = [3, 10];
-// const power_box_box_shadow = [[0, 0, 0, .5], [-1, 1, .25, -.75]];
-// const power_box_font_size = .5; //percentage
-// const power_box_line_height = 4;
-// const power_box_padding_left_right = 1;
-// const power_box_margin_top = -2;
-
-
 const measure = document.createElement('span');
 
 document.addEventListener('DOMContentLoaded', function(){
@@ -88,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function(){
     document.body.appendChild(measure);
     console.log('measure: ' + measure);
 
-    document.querySelectorAll('.name_box_text').forEach(fit_text);
+    // document.querySelectorAll('.name_box_text').forEach(fit_text);
 })
 
 window.addEventListener('resize', function(){
@@ -106,7 +61,7 @@ window.addEventListener('resize', function(){
 
     let element = document.querySelectorAll('#name_box_text')[0]
     
-    fit_text(element);
+    // fit_text(element);
 })
 
 
