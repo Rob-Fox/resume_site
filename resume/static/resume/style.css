@@ -1,39 +1,120 @@
 :root {
     --ua: calc(75dvh/88);
     --ub: calc(75dvw/63);
-    --margin: calc(2*var(--u));
     --u: var(--ub);
+    --margin: calc(2*var(--u));
+    --card_height: calc(88*var(--u)); 
+    --card_width: calc(63*var(--u));
+    --border: calc(3*var(--u));
 }
 @media (min-aspect-ratio: 1/1) {
     :root {
         --u: var(--ua);
     }
 }
+
+
+
 #fast-links li {
     display: inline-block;
     color:cadetblue;
 }
+
 a {
     display: inline-flex;
 }
+
 #job_div {
-    display: flex;
+    display: inline-flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    width: calc(var(--card_width) + 5.97px)
 }
+
+
+
+#job_div::scroll-button(*) {
+    border: 0;
+    font-size: 2rem;
+    background: none;
+    color: black;
+    opacity: .7;
+    cursor: pointer;
+}
+#job_div::scroll-button(*):hover,
+#job_div::scroll-button(*):focus {
+    opacity: 1;
+}
+#job_div::scroll-button(*):active {
+    translate: 1px 1px;
+}
+#job_div::scroll-button(*):disabled {
+    opacity: .2;
+    cursor: unset;
+}
+#job_div::scroll-button(left) {
+    content: '◄' / 'Previous';
+}
+#job_div::scroll-button(right) {
+    content: '►' / 'Next';
+}
+#job_div {
+    anchor-name: --my_carousel;
+}
+#job_div::scroll-button(left) {
+    right: calc(anchor(left) - 70px);
+    bottom: calc(anchor(top) + 13px);
+}
+#job_div::scroll-button(right) {
+    left: calc(anchor(right) - 70px);
+    bottom: calc(anchor(top) + 13px);
+}
+#job_div {
+    scroll-marker-group: after;
+    scrollbar-width: none;
+}
+#job_div::-webkit-scrollbar {
+    display: none;
+}
+#job_div::scroll-marker-group {
+    position: absolute;
+    position-anchor: --my_carousel;
+    top: calc(anchor(bottom) - 70px);
+    justify-self: anchor-center;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card_outer::scroll-marker {
+    content: attr(data-accName);
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    text-indent: 16px;
+}
+.card_outer::scroll-marker:target-current {
+    background-color: black;
+}
+
+
+
 .card_outer {
+    box-sizing: border-box;
+    scroll-snap-align: center;
+
     height: calc(88*var(--u));
     aspect-ratio: 63/88;
     border-color: black;
     border-style: solid;
     border-radius: calc(3*var(--u));
     background-color: black;
-    display: none
-    /* display: inline-block; */
 }
-.card_outer:nth-child(2) {
-    display: block;
-}
-.card_inner {
 
+.card_inner {
     height: calc(76*var(--u));
     aspect-ratio: 59/76;
     margin-top: var(--margin);
@@ -45,9 +126,11 @@ a {
     vertical-align: top;
     border-radius: var(--margin) var(--margin) calc(2.5 * var(--margin)) calc(2.5 * var(--margin));   
 }
+
 .name_box {
     margin-top: var(--margin);
 }
+
 .text_bar {
     height: calc(5*var(--u));
     aspect-ratio: 55/5;
@@ -68,15 +151,18 @@ a {
     line-height: calc(5*var(--u));
     overflow: hidden;
 }
+
 #name_box_text {
     /* font-size: calc(1rem + 1vw);
     width: 100%; */
     white-space: nowrap;
 }
+
 #type_box_text {
     font-size: calc(1rem + 1vw);
     width: 100%;
 }
+
 .image_box {
     height: calc(39*var(--u));
     aspect-ratio: 53/39;
@@ -86,9 +172,7 @@ a {
     margin-right: auto;
     box-shadow: 0 0 0 calc(.5*var(--u)) lightsalmon;
 }
-.type_box {
 
-}
 .text_box {
     height: calc(26*var(--u));
     aspect-ratio: 53/26;
@@ -99,14 +183,17 @@ a {
     background-color: navajowhite;
     font-size: 1em;
 }
+
 .text_box ul {
     padding-left: 5%;
     margin: 0;
     list-style-type: none;
 }
+
 .text_box ul li {
     margin-bottom: calc(1*var(--u));
 }
+
 .power_box {
     width:fit-content;
     height: calc(4ar(--u));

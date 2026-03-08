@@ -20,80 +20,12 @@ const measure = document.createElement('span');
 
 document.addEventListener('DOMContentLoaded', function(){
     draw_socials();
-
-    let [card_container, children, next, previous] = initialize_cards();
-    let current_idx = 0;
-    next.addEventListener('click', () => {
-        current_idx = (current_idx + 1) % children.length;
-        switch_child(current_idx, children);
-    })
-    previous.addEventListener('click', () => {
-        current_idx = (current_idx - 1 + children.length) % children.length;
-        switch_child(current_idx, children);
-    })
-
-    
-
-    measure.style.position = 'absolute';
-    measure.style.visibility = 'hidden';
-    measure.style.whiteSpace = 'nowrap';
-    measure.style.top = '-9999px';
-    measure.style.left = '-9999px';
-
-    document.body.appendChild(measure);
-    console.log('measure: ' + measure);
-
-    // document.querySelectorAll('.name_box_text').forEach(fit_text);
 })
 
 window.addEventListener('resize', function(){
-//     let text_bar = document.getElementsByClassName('text_bar')[0];
-//     let text_bar_width = this.getComputedStyle(text_bar).width.slice(0, -2);
-//     // text_bar_width = Math.floor(text_bar_width);
-//     // let text_bar_width2 = text_bar.getBoundingClientRect().width;
-//     console.log('text bar width type: '+ typeof(text_bar_width))
-//     console.log('text bar width: ' + text_bar_width);
-//     // console.log('text bar width2: ' + text_bar_width2);
-//     let text_content = text_bar.innerText;
-//     console.log('text bar content: ' + text_content)
-//     console.log('text bar content length: ' + text_content.length)
-//     console.log('space per char: ' + (text_bar_width/text_content.length))
-
-    let element = document.querySelectorAll('#name_box_text')[0]
-    
-    // fit_text(element);
 })
 
 
-function fit_text(el, base_size=100){
-    console.log('fitting text');
-    const parent = el.parentElement;
-    console.log('parent: '+ parent);
-
-    measure.style.font = window.getComputedStyle(el).font;
-    measure.style.fontSize = base_size + 'px';
-    measure.textContent = el.textContent;
-    console.log('el.textcontent ' + el.textContent);
-    console.log('measure.textcontent ' + measure.textContent);
-
-    const text_width = measure.offsetWidth;
-    const text_height = measure.offsetHeight;
-    console.log('offset width: ' + measure.offsetWidth);
-    console.log('offset height: ' + measure.offsetHeight);
-
-    console.log('parentWidth: '+ parent.clientWidth);
-    console.log('parentHeight: '+ parent.clientHeight);
-    const scale_x = parent.clientWidth / text_width;
-    const scale_y = parent.clientHeight / text_height;
-    console.log('scale_x: ' + scale_x);
-    console.log('scale_y: ' + scale_y);
-
-    const scale = Math.min(scale_x, scale_y);
-    console.log('scale: ' + scale);
-    console.log('scale*base_size: ' + scale*base_size);
-
-    el.style.fontSize = (base_size * scale) + 'px';
-}
 
 function draw_socials(){
     linkedin_svg_element = document.getElementById('linkedin_svg');
@@ -108,18 +40,4 @@ function draw_socials(){
     github_path_element = document.getElementById('github_path');
     github_path = 'M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.026 2.747-1.026.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z';
     github_path_element.setAttribute('d', github_path);
-}
-
-function switch_child(idx, children){
-    children.forEach((child, i) => {
-        child.style.display = i === idx ? 'block' : 'none';
-    });
-}
-
-function initialize_cards(){
-    let card_container = document.getElementById('job_div');
-    let children = card_container.querySelectorAll('.card_outer')
-    let next_button = document.getElementById('next');
-    let previous_button = document.getElementById('previous');
-    return [card_container, children, next_button, previous_button];
 }
