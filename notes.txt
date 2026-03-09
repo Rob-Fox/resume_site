@@ -22,7 +22,9 @@ have jobs as magic cards? (changed enough to avoid problems)
     image: gifs?
 
     Fix formatting of longer text sections (microsoft job title, METER bullets, etc)
-    Fix all css measurements to be more programmatic for changes to scaling, current scaling is too small.
+    Fix all css measurements to be more programmatic for changes to scaling, current scaling is too small. #DONE
+    Fix scroll arrows to be floating over job_div instead of to the side/above/below items
+    Try to style cards carousel so current card is centered, next/previous card is: to the side, behind, semi-opaque
 
 
 
