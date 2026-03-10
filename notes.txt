@@ -15,16 +15,18 @@ socials centered above blurb section (icons as links)
 
 have jobs as magic cards? (changed enough to avoid problems)
     card name: job title #DONE
-    card type: company #DOPNE
+    card type: company #DONE
     bullets: text box #DONE
     dates: power/toughness #DONE
         find out how to format the date in HTML/CSS/JS to match resume (MONYEAR (MAR2024)) #DONE
     image: gifs?
 
-    Fix formatting of longer text sections (microsoft job title, METER bullets, etc)
+    @@@@Fix formatting of longer text sections (microsoft job title, METER bullets, etc)
+    Modify scroll-marker-group styling to be in a better location and color (not black I think)
+
     Fix all css measurements to be more programmatic for changes to scaling, current scaling is too small. #DONE
-    Fix scroll arrows to be floating over job_div instead of to the side/above/below items
-    Try to style cards carousel so current card is centered, next/previous card is: to the side, behind, semi-opaque
+    Fix scroll arrows to be floating over job_div instead of to the side/above/below items #DONE
+    Try to style cards carousel so current card is centered, next/previous card is: to the side, behind, semi-opaque #DONE
 
 
 

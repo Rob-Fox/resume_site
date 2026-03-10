@@ -12,6 +12,33 @@
         --u: var(--ua);
     }
 }
+@keyframes cover-flow {
+    0%, 15% {
+        transform: scale(.5);
+        opacity: 0;
+        z-index: 0;
+    }
+    20%, 45% {
+        transform: scale(.75);
+        opacity: .5;
+        z-index: 1;
+    }
+    50% {
+        transform: scale(1);
+        opacity: 1;
+        z-index: 10;
+    }
+    55%, 80% {
+        transform: scale(.75);
+        opacity: .5;
+        z-index: 1;
+    }
+    85%, 100% {
+        transform: scale(.5);
+        opacity: 0;
+        z-index: 0;
+    }
+}
 
 
 
@@ -24,15 +51,25 @@ a {
     display: inline-flex;
 }
 
-#job_div {
-    display: inline-flex;
+#job_div {    
+    display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    width: calc(var(--card_width) + 5.97px)
+    width: calc(var(--card_width) * 2.5);
+    max-width: 95vw;
+    padding: 0;
+    anchor-name: --my_carousel;
+    scroll-marker-group: after;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    align-items: center;
 }
 
 
-
+#job_div::before, #job_div::after {
+    content: '';
+    flex: 0 0 calc(.9 * var(--card_width));
+}
 #job_div::scroll-button(*) {
     border: 0;
     font-size: 2rem;
@@ -40,6 +77,9 @@ a {
     color: black;
     opacity: .7;
     cursor: pointer;
+
+    z-index: 100;
+    pointer-events: auto;
 }
 #job_div::scroll-button(*):hover,
 #job_div::scroll-button(*):focus {
@@ -54,20 +94,20 @@ a {
 }
 #job_div::scroll-button(left) {
     content: '◄' / 'Previous';
+    position: fixed;
+    position-anchor: --my_carousel;
+    left: calc(anchor(left) + 10px);
+    align-self: anchor-center;
 }
 #job_div::scroll-button(right) {
     content: '►' / 'Next';
+    position: fixed;
+    position-anchor: --my_carousel;
+    right: calc(anchor(right) + 10px);
+    align-self: anchor-center;
 }
 #job_div {
     anchor-name: --my_carousel;
-}
-#job_div::scroll-button(left) {
-    right: calc(anchor(left) - 70px);
-    bottom: calc(anchor(top) + 13px);
-}
-#job_div::scroll-button(right) {
-    left: calc(anchor(right) - 70px);
-    bottom: calc(anchor(top) + 13px);
 }
 #job_div {
     scroll-marker-group: after;
@@ -84,6 +124,9 @@ a {
     display: flex;
     justify-content: center;
     gap: 20px;
+
+    z-index: 100;
+    pointer-events: auto;
 }
 
 .card_outer::scroll-marker {
@@ -105,14 +148,19 @@ a {
 .card_outer {
     box-sizing: border-box;
     scroll-snap-align: center;
-
+    scroll-snap-stop: always;
+    flex: 0 0 auto;
+    width: var(--card_width);
     height: calc(88*var(--u));
     aspect-ratio: 63/88;
     border-color: black;
     border-style: solid;
     border-radius: calc(3*var(--u));
     background-color: black;
-}
+    margin: 0 calc(-.15 * var(--card_width));
+    animation: cover-flow linear both;
+    animation-timeline: view(inline);    
+}    
 
 .card_inner {
     height: calc(76*var(--u));
