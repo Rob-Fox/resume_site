@@ -74,9 +74,9 @@
         {% for category, skill_list in skills.items %}
             <h3 id="skill_category"> {{ category }}</h3>
             <ul>
-            {% for skill in skill_list %}
-                <li>{{ skill.skill_name }}</li>
-            {% endfor%}
+                {% for skill in skill_list %}
+                    <li>{{ skill.skill_name }}</li>
+                {% endfor%}
             </ul>
         {% endfor %}
     </div>

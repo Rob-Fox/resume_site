@@ -30,7 +30,8 @@ have jobs as magic cards? (changed enough to avoid problems)
 
 
 
-for skills section have only first skill section visible (rotates on timer?) and arrows on either side to switch to other sections (looping back around to the start if proceeding from the end)
+for skills section have only first skill section visible (rotates on timer?) and arrows on either side to switch to other sections (looping back around to the start if proceeding from the end)?
+Looking at dsiplaying skill groups as clickable tabs with its data list below it.
 
 get admin page set up for uploading resume pdf #DONE
 figure out how to parse data from my pdf resume #DONE

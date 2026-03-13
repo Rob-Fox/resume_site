@@ -144,9 +144,6 @@ a {
     overflow: hidden;
     text-indent: 16px;
     background-color: transparent;
-    /* top: calc(anchor(bottom) + 50px); */
-    /* mix-blend-mode: difference; */
-    /* backdrop-filter: invert(80%); */
 }
 .card_outer::scroll-marker:target-current {
     background-color: #000;
@@ -205,10 +202,6 @@ a {
 }
 
 #name_box_text {
-    /* font-size: calc(1rem + 1vw);
-    width: 100%; */
-    /* font-size: calc(1rem + 1vw); */
-    /* font-size: calc(1rem); */
     white-space: nowrap;
 }
 
