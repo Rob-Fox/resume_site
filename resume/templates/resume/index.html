@@ -70,10 +70,15 @@
                 </div>
             {% endfor %}
         </div>
-    <div>
+    <div id="skills_container">
         {% for category, skill_list in skills.items %}
-            <h3 id="skill_category"> {{ category }}</h3>
-            <ul>
+            {% if forloop.counter == 1 %}
+                <input type="radio" name="skill_tabs" id="skill_tab-{{ forloop.counter }}" checked>
+            {% else %}
+                <input type="radio" name="skill_tabs" id="skill_tab-{{ forloop.counter }}">
+            {% endif %}
+            <h3 id="skill_category"><label for="skill_tab-{{ forloop.counter }}">{{ category }}</label></h3>
+            <ul class="skill_content">
                 {% for skill in skill_list %}
                     <li>{{ skill.skill_name }}</li>
                 {% endfor%}

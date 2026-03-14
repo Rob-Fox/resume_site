@@ -255,3 +255,62 @@ a {
     font-weight: bold;
     margin-top: calc(-2*var(--u));
 }
+
+#skills_container {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+#skills_container input[type='radio'] {
+    display: none;
+}
+
+#skills_container h3 {
+    order: 1;
+    margin: 0;
+}
+
+#skills_container h3 label {
+    display: inline-block;
+    padding: 12px 24px;
+    cursor: pointer;
+    background-color: blanchedalmond;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    margin-right: 5px;
+    border-radius: 5px 5px 0 0;
+    transition: background-color .3s ease;
+}
+
+#skills_container ul.skill_content {
+    order: 2;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background: #fff;
+    list-style-position: inside;
+    display: none;
+}
+
+#skills_container input[type='radio']:checked + h3 + ul.skill_content {
+    display: block;
+    animation: fadeIn .4s ease forwards;
+}
+
+#skills_container input[type='radio']:checked + h3 label {
+    background-color: #fff;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
