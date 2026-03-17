@@ -40,7 +40,9 @@
     }
 }
 
-
+body {
+    background-color: cadetblue;
+}
 
 #fast-links li {
     display: inline-block;
@@ -70,7 +72,7 @@ a {
     scrollbar-width: none;
     align-items: center;
     padding-bottom: 100px;
-    background-color: aquamarine;
+    background-color: cadetblue;
     
     anchor-name: --my_carousel;
     scroll-marker-group: after;
@@ -176,7 +178,7 @@ a {
     margin-right: var(--margin);
     border-radius: var(--margin);
     padding-top: calc(var(--margin)/2);
-    background-color: red;
+    background-color: forestgreen;
     vertical-align: top;
     border-radius: var(--margin) var(--margin) calc(2.5 * var(--margin)) calc(2.5 * var(--margin));   
 }
@@ -276,7 +278,7 @@ a {
     width: fit-content;
     padding: .75rem 1.5rem;
     cursor: pointer;
-    background-color: #f1f1f1;
+    background-color: lightblue;
     border: 1px solid #ccc;
     margin-right: 5px;
     border-radius: 5px 5px 0 0;
@@ -295,7 +297,7 @@ a {
     margin: 0;
     padding: 20px;
     border: 1px solid #ccc;
-    background: #fff;
+    background: lightblue;
     list-style-position: inside;
     display: none;
 
@@ -309,7 +311,7 @@ a {
 }
 
 #skills_container input[type='radio']:checked + h3 label {
-    background-color: #fff;
+    background-color: lightblue;
     font-weight: bold;
     text-decoration: underline;
 
