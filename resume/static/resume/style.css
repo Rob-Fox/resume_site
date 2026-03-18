@@ -1,3 +1,7 @@
+/* Color theme: 60%:lightblue
+             30%:cadetblue
+             10%:coral */
+
 :root {
     --ua: calc(75dvh/88);
     --ub: calc(75dvw/63);
@@ -41,12 +45,24 @@
 }
 
 body {
-    background-color: cadetblue;
+    background-color: lightblue;
 }
 
-#fast-links li {
+#fast_links {
+    
+}
+#fast_links li {
     display: inline-block;
-    color:cadetblue;
+    color: coral;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+#fast_links li:hover {
+    color: lightblue;
+    cursor: pointer;
+    background-color: coral;
 }
 
 a {
@@ -72,7 +88,7 @@ a {
     scrollbar-width: none;
     align-items: center;
     padding-bottom: 100px;
-    background-color: cadetblue;
+    background-color: lightblue;
     
     anchor-name: --my_carousel;
     scroll-marker-group: after;
@@ -262,6 +278,9 @@ a {
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    width: 75%;
+    min-width: 320px;
+    margin: 0 auto;
 }
 
 #skills_container input[type='radio'] {
@@ -271,20 +290,29 @@ a {
 #skills_container h3 {
     order: 1;
     margin: 0;
+    flex: 1;
+    text-align: center;
+    min-width: 0;
 }
 
 #skills_container h3 label {
-    display: inline-block;
-    width: fit-content;
-    padding: .75rem 1.5rem;
+    display: block;
+    width: 100%;
+    padding: .75vh 1.5vw;
+    box-sizing: border-box;
+    text-align: center;
     cursor: pointer;
-    background-color: lightblue;
-    border: 1px solid #ccc;
-    margin-right: 5px;
+    background-color: cadetblue;
+    border: 1px solid #4a8082;
     border-radius: 5px 5px 0 0;
     transition: background-color .3s ease;
     font-weight: 100;
-    font-size: 1.25rem;
+    font-size: 1.25vw;
+    color: white;
+    opacity: .7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     position: relative;
     top: 1px;
@@ -296,13 +324,18 @@ a {
     width: 100%;
     margin: 0;
     padding: 20px;
-    border: 1px solid #ccc;
-    background: lightblue;
+    border: 1px solid #4a8082;
+    background: cadetblue;
     list-style-position: inside;
     display: none;
 
     position: relative;
     z-index: 1;
+}
+
+#skills_container h3 label:hover {
+    opacity: .9;
+    background-color: coral;
 }
 
 #skills_container input[type='radio']:checked + h3 + ul.skill_content {
@@ -311,12 +344,23 @@ a {
 }
 
 #skills_container input[type='radio']:checked + h3 label {
-    background-color: lightblue;
+    background-color: cadetblue;
     font-weight: bold;
     text-decoration: underline;
+    color: white;
+    opacity: 1;
 
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid cadetblue;
     z-index: 2;
+}
+
+ul.skill_content li {
+    color: white;
+    font-weight: bold;
+    width: fit-content;
+}
+ul.skill_content li:hover {
+    background-color: coral;
 }
 
 @keyframes fadeIn {

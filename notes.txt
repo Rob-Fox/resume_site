@@ -35,7 +35,8 @@ Looking at dsiplaying skill groups as clickable tabs with its data list below it
 try to get active skill header to not have border on the bottom #DONE
 Fix responsiveness for skills section, specificallly headers
 
-Decide on color pallete for page
+Decide on color pallete for page #DONE? Thinking lightblue, cadetblue, and coral (in that order)
+have skills be clickable and when you do it opens a new tab with the skill googled?
 
 get admin page set up for uploading resume pdf #DONE
 figure out how to parse data from my pdf resume #DONE
