@@ -279,7 +279,7 @@ a {
     flex-wrap: wrap;
     position: relative;
     width: 75%;
-    min-width: 320px;
+    min-width: min-content;
     margin: 0 auto;
 }
 
@@ -290,7 +290,7 @@ a {
 #skills_container h3 {
     order: 1;
     margin: 0;
-    flex: 1;
+    flex: auto;
     text-align: center;
     min-width: 0;
 }
@@ -307,12 +307,10 @@ a {
     border-radius: 5px 5px 0 0;
     transition: background-color .3s ease;
     font-weight: 100;
-    font-size: 1.25vw;
+    font-size: 1.5vw;
     color: white;
     opacity: .7;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 
     position: relative;
     top: 1px;
