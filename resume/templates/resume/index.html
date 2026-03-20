@@ -87,45 +87,50 @@
     </div>
     </div>
     <div id="know_me">
-        <div id="films">
-            <ul>
+        <h2>Get to know Me</h2>
+        <div id="know_me_content">
+            
+            <input type="radio" name="media_tabs" id="media_films" checked>
+            <label for="media_films" class="media_tab">Films</label>
+            <ul id="films" class="media_content">
                 <li class="film" id="film_1">
-                    <span class="title">placeholder film</span>
-                    <img class="cover" src="">
-                    <span class="director_publicationyear"></span>
+                    <span class="title">Kung Pow: Enter the Fist</span>
+                    <img class="cover" src="https://m.media-amazon.com/images/M/MV5BMDBkMDY0MTQtMzUzMS00OTk2LTlmNmItZmQ2ODc5MmEwMDA1XkEyXkFqcGc@._V1_.jpg">
+                    <span class="publicationyear">2002</span>
                     <span class="blurb"></span>
                 </li>
             </ul>
-        </div>
-        <div id="books">
-            <ul>
+            
+            <input type="radio" name="media_tabs" id="media_books">
+            <label for="media_books" class="media_tab">Books</label>
+            <ul id="books" class="media_content">
                 <li class="book" id="book_1">
                     <span class="title">placeholder book</span>
                     <img class="cover" src="">
-                    <span class="author_publicationyear"></span>
+                    <span class="publicationyear"></span>
                     <span class="blurb"></span>
                 </li>
             </ul>
-        </div>
-        <div id="games">
-            <ul>
-                <li class="game" id="game_1">
-                    <span class="title">placeholder game</span>
-                    <img class="cover" src="">
-                    <span class="publisher_publicationyear"></span>
-                    <span class="blurb"></span>
-                </li>
-            </ul>
-        </div>
-        <div id="music">
-            <ul>
-                <li class="artist" id="artist_1">
-                    <span class="title">placeholder music</span>
-                    <img class="cover" src="">
-                    <span class="artist_publicationyear"></span>
-                    <span class="blurb">????to include or not to include</span>
-                </li>
-            </ul>
+            <!-- <div id="games">
+                <ul>
+                    <li class="game" id="game_1">
+                        <span class="title">placeholder game</span>
+                        <img class="cover" src="">
+                        <span class="publicationyear"></span>
+                        <span class="blurb"></span>
+                    </li>
+                </ul>
+            </div>
+            <div id="music">
+                <ul>
+                    <li class="artist" id="artist_1">
+                        <span class="title">placeholder music</span>
+                        <img class="cover" src="">
+                        <span class="publicationyear"></span>
+                        <span class="blurb">????to include or not to include</span>
+                    </li>
+                </ul>
+            </div> -->
         </div>
     </div>
     {% endif %}
