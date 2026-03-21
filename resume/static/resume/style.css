@@ -391,11 +391,13 @@ ul.skill_content li:hover {
 #know_me_content {
     display: grid;
     grid-template-columns: max-content 1fr;
+    grid-template-rows: repeat(4, max-content) 1fr;
+    height: 40vh;
     border: 2px solid #4a8082;
     border-top: none;
     border-radius: 0 0 8px 8px;
-    overflow: hidden;
-    background-color: lightblue;
+    /* overflow: hidden; */
+    background-color: cadetblue;
 }
 
 #know_me_content input[type='radio'] {
@@ -412,13 +414,14 @@ ul.skill_content li:hover {
     font-size: 1.1rem;
     font-weight: 100;
     white-space: nowrap;
-    border-right: 2px solid #4a8082;
+    /* border-right: 2px solid #4a8082; */
     border-bottom: 1px solid #4a8082;
     transition: background-color .3s ease;
+    position: relative;
 }
 
 .media_tab:last-of-type {
-    border-bottom: none;
+    /* border-bottom: none; */
 }
 
 .media_tab:hover {
@@ -429,11 +432,22 @@ input[type='radio']:checked + media_tab {
     background-color: lightblue;
     color:  cadetblue;
     font-weight: bold;
-    border-right: 2px solid lightblue;
+    /* border-right: 2px solid lightblue; */
 }
 
 input[type='radio']:checked + .media_tab:hover {
     background-color: lightblue;
+}
+
+input[type='radio']:checked + .media_tab::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -2px;
+    width: 2px;
+    background-color: lightblue;
+    z-index: 2;
 }
 
 .media_content {
@@ -443,7 +457,10 @@ input[type='radio']:checked + .media_tab:hover {
     list-style: none;
     margin: 0;
     padding: 2rem;
+    border-left: 2px solid #4a8082;
     background-color: lightblue;
+    position: relative;
+    z-index: 1;
 }
 
 input[type='radio']:checked + .media_tab + .media_content {
@@ -473,7 +490,7 @@ input[type='radio']:checked + .media_tab + .media_content {
     grid-column: 1;
     grid-row: 2 / 4;
     width: 150px;
-    height: auto;
+    aspect-ratio: 150/225;
     object-fit: cover;
     border-radius: 5px;
     border: 2px solid cadetblue;
