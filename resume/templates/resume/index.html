@@ -80,7 +80,7 @@
             <h3 id="skill_category"><label for="skill_tab-{{ forloop.counter }}">{{ category }}</label></h3>
             <ul class="skill_content">
                 {% for skill in skill_list %}
-                    <li>{{ skill.skill_name }}</li>
+                    <li><a href="https://www.google.com/search?q={{ skill.skill_name }}" target="_blank">{{ skill.skill_name }}</a></li>
                 {% endfor%}
             </ul>
         {% endfor %}
@@ -141,7 +141,7 @@
                 </li>
             </ul>
 
-            <input type="radio" name="media_tabs" id="media_music">
+            <!-- <input type="radio" name="media_tabs" id="media_music">
             <label for="media_music" class="media_tab">Music</label>
             <ul id="music" class="media_content">
                 <li class="artist" id="artist_1">
@@ -150,7 +150,7 @@
                     <span class="publicationyear"></span>
                     <span class="blurb">????to include or not to include</span>
                 </li>
-            </ul>
+            </ul> -->
         </div>
     </div>
     {% endif %}

@@ -360,6 +360,11 @@ ul.skill_content li:hover {
     background-color: coral;
 }
 
+ul.skill_content li a {
+    text-decoration: none;
+    color: inherit;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;
