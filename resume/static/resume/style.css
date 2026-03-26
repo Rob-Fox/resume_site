@@ -48,9 +48,34 @@ body {
     background-color: lightblue;
 }
 
-#fast_links {
+header {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+}
+
+header div {
     
 }
+
+header2 {
+    display: block;
+    width: 75%;
+    margin: 0 auto;
+}
+
+header2 ul {
+    width: fit-content;
+}
+
+/* #resume_content {
+    width: 75%;
+} */
+
+#fast_links {
+    width: fit-content;
+}
+
 #fast_links li {
     display: inline-block;
     color: coral;
