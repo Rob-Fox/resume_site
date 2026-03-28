@@ -45,21 +45,24 @@
 }
 
 body {
-    background-color: lightblue;
+    background-color: cadetblue;
 }
 
 header {
+    background-color: lightblue;
     display: flex;
     justify-content: center;
     width: 75%;
     margin: 0 auto;
+    margin-top: -8px;
 }
 
-header div {
+/* header div {
     
-}
+} */
 
 header2 {
+    background-color: lightblue;
     display: flex;
     justify-content: center;
     width: 75%;
@@ -70,9 +73,14 @@ header2 ul {
     width: fit-content;
 }
 
-/* #resume_content {
+#resume_content {
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 0 auto;
     width: 75%;
-} */
+}
 
 #fast_links {
     width: fit-content;
@@ -107,7 +115,7 @@ a {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     width: calc(var(--card_width) * 2.5);
-    max-width: 95vw;
+    max-width: 100%;
     padding: 0;
     anchor-name: --my_carousel;
     scroll-marker-group: after;
@@ -301,10 +309,10 @@ a {
 }
 
 #skills_container {
+    background-color: cadetblue;
     display: flex;
     flex-wrap: wrap;
     position: relative;
-    width: 75%;
     min-width: min-content;
     margin: 0 auto;
 }
@@ -406,6 +414,7 @@ ul.skill_content li a {
 #know_me {
     width: 75%;
     margin: 2rem auto;
+    /* background-color: lightblue; */
 }
 
 #know_me h2 {
@@ -423,7 +432,7 @@ ul.skill_content li a {
     display: grid;
     grid-template-columns: max-content 1fr;
     grid-template-rows: repeat(4, max-content) 1fr;
-    height: 40vh;
+    /* height: 40vh; */
     border: 2px solid #4a8082;
     border-top: none;
     border-radius: 0 0 8px 8px;
