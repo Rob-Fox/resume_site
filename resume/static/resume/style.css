@@ -168,14 +168,16 @@ a {
 }
 #job_div::scroll-button(left) {
     content: '◄' / 'Previous';
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     position-anchor: --my_carousel;
     left: calc(anchor(left) + 10px);
     align-self: anchor-center;
 }
 #job_div::scroll-button(right) {
     content: '►' / 'Next';
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     position-anchor: --my_carousel;
     right: calc(anchor(right) + 10px);
     align-self: anchor-center;
@@ -631,14 +633,16 @@ input[type='radio']:checked + .media_tab + .media_content {
 }
 .media_content::scroll-button(left) {
     content: '◄' / 'Previous';
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     position-anchor: --media_carousel;
     left: calc(anchor(left) + 10px);
     align-self: anchor-center;
 }
 .media_content::scroll-button(right) {
     content: '►' / 'Next';
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     position-anchor: --media_carousel;
     right: calc(anchor(right) + 10px);
     align-self: anchor-center;
