@@ -63,9 +63,6 @@ header {
     margin-top: -8px;
 }
 
-/* header div {
-    
-} */
 
 header2 {
     background-color: var(--primary_color);
@@ -168,7 +165,6 @@ a {
 }
 #job_div::scroll-button(left) {
     content: '◄' / 'Previous';
-    /* position: fixed; */
     position: absolute;
     position-anchor: --my_carousel;
     left: calc(anchor(left) + 10px);
@@ -176,7 +172,6 @@ a {
 }
 #job_div::scroll-button(right) {
     content: '►' / 'Next';
-    /* position: fixed; */
     position: absolute;
     position-anchor: --my_carousel;
     right: calc(anchor(right) + 10px);
@@ -361,7 +356,6 @@ a {
     white-space: nowrap;
 
     position: relative;
-    /* top: 1px; */
     z-index: 1;
 }
 
@@ -370,7 +364,6 @@ a {
     width: 100%;
     margin: 0;
     padding: 20px;
-    /* border: 1px solid #4a8082; */
     border: 2px solid var(--tertiary_color);
     border-top: none;
     background: var(--primary_color);
@@ -405,7 +398,6 @@ a {
 }
 
 ul.skill_content li {
-    /* color: white; */
     color: var(--secondary_color);
     font-weight: bold;
     width: fit-content;
@@ -433,7 +425,6 @@ ul.skill_content li a {
 #know_me {
     width: 75%;
     margin: 2rem auto;
-    /* background-color: var(--secondary_color); */
 }
 
 #know_me h2 {
@@ -443,7 +434,6 @@ ul.skill_content li a {
     margin: 0;
     padding: .75rem 1.5rem;
     font-size: 1.5rem;
-    /* border: 2px solid #4a8082; */
     border: 2px solid var(--tertiary_color);
     border-radius: 8px 8px 0 0;
     text-align: center;
@@ -453,12 +443,9 @@ ul.skill_content li a {
     display: grid;
     grid-template-columns: max-content 1fr;
     grid-template-rows: repeat(4, max-content) 1fr;
-    /* height: 40vh; */
-    /* border: 2px solid #4a8082; */
     border: 2px solid var(--tertiary_color);
     border-top: none;
     border-radius: 0 0 8px 8px;
-    /* overflow: hidden; */
     background-color: var(--primary_color);
 }
 
@@ -477,16 +464,11 @@ ul.skill_content li a {
     font-size: 1.1rem;
     font-weight: 100;
     white-space: nowrap;
-    /* border-right: 2px solid #4a8082; */
-    /* border-bottom: 1px solid #4a8082; */
     border-bottom: 1px solid var(--tertiary_color);
     transition: background-color .3s ease;
     position: relative;
 }
 
-.media_tab:last-of-type {
-    /* border-bottom: none; */
-}
 
 .media_tab:hover {
     background-color: var(--tertiary_color);
@@ -496,7 +478,6 @@ input[type='radio']:checked + media_tab {
     background-color: var(--secondary_color);
     color:  var(--primary_color);
     font-weight: bold;
-    /* border-right: 2px solid var(--secondary_color); */
 }
 
 input[type='radio']:checked + .media_tab:hover {
@@ -522,7 +503,6 @@ input[type='radio']:checked + .media_tab::after {
     list-style: none;
     margin: 0;
     padding: 0;
-    /* border-left: 2px solid #4a8082; */
     border-left: 2px solid var(--tertiary_color);
     background-color: var(--secondary_color);
     position: relative;
@@ -586,7 +566,6 @@ input[type='radio']:checked + .media_tab + .media_content {
     grid-column: 2;
     grid-row: 2;
     font-style: italic;
-    /* color: #4a8082; */
     color: var(--tertiary_color);
     font-size: 1rem;
 }
@@ -596,7 +575,6 @@ input[type='radio']:checked + .media_tab + .media_content {
     grid-row: 3;
     font-size: 1rem;
     line-height: 1.3;
-    /* color: #333; */
     color: var(--tertiary_color);
     font-size: 1vw;
     font-weight: bold;
@@ -633,7 +611,6 @@ input[type='radio']:checked + .media_tab + .media_content {
 }
 .media_content::scroll-button(left) {
     content: '◄' / 'Previous';
-    /* position: fixed; */
     position: absolute;
     position-anchor: --media_carousel;
     left: calc(anchor(left) + 10px);
@@ -641,9 +618,13 @@ input[type='radio']:checked + .media_tab + .media_content {
 }
 .media_content::scroll-button(right) {
     content: '►' / 'Next';
-    /* position: fixed; */
     position: absolute;
     position-anchor: --media_carousel;
     right: calc(anchor(right) + 10px);
     align-self: anchor-center;
+}
+
+
+#about_page {
+    display: none;
 }
