@@ -628,6 +628,7 @@ input[type='radio']:checked + .media_tab + .media_content {
 .main_tab {
     cursor: pointer;
     background-color: var(--primary_color);
+    background: radial-gradient(ellipse,  rgba(173,216,230,1)0%, rgba(95,158,160,1) 50%, rgba(173,216,230,1) 100%);
     /* color: white; */
     color: var(--secondary_color);
     /* font-size: 1.1rem;
@@ -644,16 +645,19 @@ input[type='radio']:checked + .media_tab + .media_content {
 
 
 input[type='radio']:checked + .main_tab {
-    background-color: var(--secondary_color);
-    color:  var(--primary_color);
+    background-color: var(--primary_color);
+    color:  var(--tertiary_color);
     font-weight: bold;
 }
 
 input[type='radio']:checked + .main_tab:hover {
-    background-color: var(--secondary_color);
+    /* background-color: var(--secondary_color); */
+    background: radial-gradient(center, ellipse,  rgba(173,216,230,1)0%, rgba(95,158,160,1) 50%, rgba(173,216,230,1) 100%);
     color: var(--tertiary_color)
+    
 }
 
 .main_tab:hover {
     background-color: var(--tertiary_color);
+    /* background: radial-gradient(center, ellipse, rgba(95,158,160,1) 0%, rgba(173,216,230,1) 50%, rgba(95,158,160,1) 100%); */
 }
