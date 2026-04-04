@@ -49,6 +49,10 @@
     }
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--secondary_color);
     background: linear-gradient(90deg, var(--secondary_color) 5%, var(--primary_color) 12.5%, var(--primary_color) 87.5%, var(--secondary_color) 95%);
@@ -93,6 +97,7 @@ header2 ul {
     cursor: pointer;
     /* background-color: var(--tertiary_color); */
     background: radial-gradient(ellipse,  var(--tertiary_color) 0%, rgba(95,158,160,1) 75%);
+    font-style: italic;
 }
 
 #resume_content {
@@ -110,6 +115,8 @@ header2 ul {
 
 a {
     display: inline-flex;
+    color: inherit;
+    text-decoration: none;
 }
 
 #socials_1 {
