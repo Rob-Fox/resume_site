@@ -10,16 +10,16 @@
     <script src='{% static "resume/script.js" %}'></script>
 </head>
 <body>
+    <header>
+        <div>
+            sitename/title
+            <input type="radio" name="main_tabs" id="about_me" checked>
+            <label for="about_me" class="main_tab">About Me</label>
+            <input type="radio" name="main_tabs" id="about_page">
+            <label for="about_page" class="main_tab">About this Page</label>
+        </div>
+    </header>
     <div id="about_me_wrapper">
-        <header>
-            <div>
-                sitename/title
-                <input type="radio" name="main_tabs" id="about_me" checked>
-                <label for="about_me" class="main_tab">About Me</label>
-                <input type="radio" name="main_tabs" id="about_page">
-                <label for="about_page" class="main_tab">About this Page</label>
-            </div>
-        </header>
         <header2>
             <div id="fast_links">
                 <ul>

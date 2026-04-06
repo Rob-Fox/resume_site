@@ -649,7 +649,7 @@ input[type='radio']:checked + .media_tab + .media_content {
 }
 
 
-#about_me_wrapper input[type='radio'] {
+header input[type='radio'] {
     display: none;
 }
 
@@ -677,4 +677,12 @@ input[type='radio']:not(:checked) + .main_tab:hover {
     background: radial-gradient(ellipse,  rgba(173,216,230,1)0%, rgba(95,158,160,1) 75%);
     color: var(--tertiary_color);
     font-style: italic;
+}
+
+body:has(#about_me:checked) #about_page {
+    display: none;
+}
+
+body:has(#about_page:checked) #about_me_wrapper {
+    display: none;
 }
