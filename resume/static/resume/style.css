@@ -570,6 +570,10 @@ input[type='radio']:checked + .media_tab + .media_content {
     box-shadow: 2px 2px 8px rgba(0,0,0,.2);
 }
 
+.media_content li .cover[data-shape='square'] {
+    aspect-ratio: 1/1;
+}
+
 .media_content li .publicationyear {
     grid-column: 2;
     grid-row: 2;
