@@ -649,7 +649,7 @@ input[type='radio']:checked + .media_tab + .media_content {
 }
 
 
-header input[type='radio'] {
+input[type='radio'] {
     display: none;
 }
 
@@ -685,4 +685,10 @@ body:has(#about_me:checked) #about_page {
 
 body:has(#about_page:checked) #about_me_wrapper {
     display: none;
+}
+
+#about_page {
+    justify-content: center;
+    width: 75%;
+    margin: 0 auto;
 }
