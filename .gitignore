@@ -3,3 +3,4 @@
 *.pyc
 /resume/migrations/
 /Resume.pdf
+/resume/static/resume/script.js
