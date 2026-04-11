@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href='{% static "resume/style.css" %}'>
-    <!-- <script src='{% static "resume/script.js" %}'></script> -->
 </head>
 <body>
     <header>
@@ -165,6 +164,12 @@
                 <li>HTML5</li>
                 <li>CSS3</li>
             </ul>
+        </div>
+        <div>
+            <p id="page_description">
+                The resume is loaded into Django and then parsed into various models so it can be stored in the SQLite database. When the page is requested the information is retrieved from the SQLite database and sent to the rendered view where it is inserted via Django templating.
+                100% of the styling is vanilla CSS (though some features are quite new and may not be implemented in every browser). That's right, there is absolutely no JavaScript or external libraries being used for any of the styling. 
+            </p>
         </div>
     </div>
 </body>
