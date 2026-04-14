@@ -188,7 +188,7 @@
                     <li>End Date</li>
                     <li>Job Title</li>
                     <li>Employer</li>
-                    <li>Resume Object it is associated with (Many-to-Many relationship)</li>
+                    <li>Resume object it is associated with (Many-to-Many relationship)</li>
                 </ul>
             </p>
             <p>Next we have the model for job bullet points. Separating them from jobs allows more flexibility, though they only have a few fields:
@@ -197,11 +197,11 @@
                     <li>The job object it is associated with. A Foreign Key</li>
                 </ul>
             </p>
-            <p>Skill
+            <p> The model for Skill includes fields for:
                 <ul>
-                    <li>Category</li>
+                    <li>Category (to group the skills thematically)</li>
                     <li>Skill Name</li>
-                    <li>Resume (m2m)</li>
+                    <li>Resume object (many to many relationship, a skill doesn't necessarily apply to only one resume and a resume can have multiple skills)</li>
                 </ul>
             </p>
             <p>Social Media
